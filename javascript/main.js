@@ -122,4 +122,157 @@ createPoint(10);
 function fn3(...nums) {
     return nums.join("-");
 }
+//Enums
+const ADMIN = "admin";
+const user = {
+    role: "admin" /* UserRole.Admin */,
+};
+if (user.role === "admin" /* UserRole.Admin */) {
+}
+const x = {
+    value: "str",
+};
+const x2 = {
+    value: 5,
+};
+//классы
+class ArrayOfAnything {
+    collection;
+    constructor(collection) {
+        this.collection = collection;
+    }
+    get(index) {
+        return this.collection[index];
+    }
+}
+let oneA = new ArrayOfAnything(["1", "2", "3", "4"]);
+console.log(oneA);
+let oneB = new ArrayOfAnything([1, 2, 3, 4, 5]);
+console.log(oneB);
+//функции с исп.дженерики========================================
+function printString(arr) {
+    for (let i = 0; i <= arr.length; i++) {
+        console.log(arr[i]);
+    }
+}
+function printNumber(arr) {
+    for (let i = 0; i <= arr.length; i++) {
+        console.log(arr[i]);
+    }
+}
+function printAnything(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+    }
+}
+printAnything([1, 2, 3, 4]);
+function fillArray(length, elem) {
+    return new Array(length).fill(elem);
+}
+const arr1 = fillArray(10, "*");
+console.log(arr1);
+const arr2 = fillArray(10, 9);
+console.log(arr2);
+let numbers = [1, 2, 3, 4, 5];
+// Суммирование элементов массива
+let sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0); // 15
+// Нахождение максимального значения в массиве
+let max = numbers.reduce((accumulator, currentValue) => Math.max(accumulator, currentValue), 0); // 5
+function printLength(arg) {
+    console.log(arg.length);
+    return arg.length;
+}
+printLength({ a: 5, length: 2 }); //2
+printLength([1]); //1
+printLength("str"); //3
+function getProperty(obj, key) {
+    return obj[key];
+}
+const myObj = {
+    a: 1,
+    b: 2,
+    c: 3,
+};
+//K=== 'a'|'b'|'c'
+const myObj2 = {
+    d: 1,
+    b: 2,
+    c: 3,
+};
+//K=== 'd'|'b'|'c'
+let res = getProperty(myObj, "a"); //функция будет работать только с теми ключами,которые мы передали
+console.log(res); //1
+let res2 = getProperty(myObj2, "d");
+function identity(arg) {
+    return arg;
+}
+const s = "Hello";
+const n = 10;
+const userN = {
+    name: "Max",
+    age: 15,
+};
+const r1 = identity(s);
+const r2 = identity(n);
+const r3 = identity(userN);
+const messageState = {
+    loading: false,
+    error: null,
+    data: {
+        id: 1,
+        text: "Text",
+    },
+};
+//-------------------------
+function getRandomElement(items) {
+    const randomIndex = Math.floor(Math.random() * items.length);
+    return items[randomIndex];
+}
+const el1 = getRandomElement([1, 2, 3, 4, 5]);
+const el2 = getRandomElement(["1", "2", "3", "4", "5"]);
+const el3 = getRandomElement(["1", "2", "3", "4", 5]);
+function merge(o1, o2) {
+    return {
+        ...o1,
+        ...o2,
+    };
+}
+const r11 = merge({ a: 1 }, { b: 1 });
+console.log(r11);
+//--------------------------
+async function fakeRequest() {
+    return 2;
+}
+const b = fakeRequest();
+//----------------------------
+function len(collection) {
+    return collection.length;
+}
+const r21 = len("Hello");
+const r22 = len([1, 2, 3]);
+const r23 = len(["1", "2", "3"]);
+// const r24 = len(3) //Error
+//-----------------------------------------------------------
+function getValue(obj, prop) {
+    return obj[prop];
+}
+const obj31 = {
+    name: "Max",
+    age: 33,
+};
+const r31 = getValue(obj31, "name");
+function getKey(obj, value) {
+    const key = Object.keys(obj).find((key) => obj[key] === value);
+    return key || null;
+}
+const key = getKey(obj31, "Max");
+//------------------------
+function patchField(obj, field, val) {
+    obj[field] = val;
+}
+const obj32 = {
+    name: "Max",
+    age: 33,
+};
+patchField(obj32, "name", "Mixa");
 //# sourceMappingURL=main.js.map
